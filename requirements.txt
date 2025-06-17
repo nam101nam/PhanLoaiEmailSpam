@@ -1,0 +1,5 @@
+Thư viện cần:
+pandas
+scikit-learn
+numpy
+joblib
