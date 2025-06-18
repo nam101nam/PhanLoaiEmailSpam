@@ -1,6 +1,5 @@
 # main.py
 import os
-
 def huan_luyen():
     print("Đang huấn luyện mô hình...")
     os.system("python src/tai_du_lieu.py")
@@ -20,10 +19,9 @@ def main():
         elif choice == "2":
             du_doan()
         elif choice == "3":
-            print("👋 Thoát chương trình.")
+            print("Thoát chương trình.")
             break
         else:
             print("Lựa chọn không hợp lệ. Vui lòng chọn lại.")
-
 if __name__ == "__main__":
     main()
