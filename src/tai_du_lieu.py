@@ -16,6 +16,8 @@ def lam_sach_email(text):
     return ' '.join(words)
 df = pd.read_csv(file_path)
 df['Message'] = df['Message'].apply(lam_sach_email)
+df['Message'] = df['Message'].replace(['N/A', 'NA', 'null'], np.nan, regex=True)
+df = df[df['Message'].str.strip() !='']
 # Ghi lại file đã xử lý vào thư mục DuLieu
 output_path = os.path.join(BASE_DIR, "DuLieu", "nemail.csv")
 df.to_csv(output_path, index=False)
