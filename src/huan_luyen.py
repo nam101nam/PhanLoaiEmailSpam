@@ -33,11 +33,11 @@
 # joblib.dump(cv, vec_path)
 
 
-
 import pandas as pd
 import numpy as np
 import pickle
 import os
+
 # Doc du lieu tu file csv
 data = pd.read_csv(r'C:\Users\User\PycharmProjects\PhanLoaiEmailSpam\DuLieu\nemail.csv')
 
@@ -82,6 +82,7 @@ total_ham_words = ham_word_count.sum()
 log_prob_spam = np.log(spam_word_count / total_spam_words)
 log_prob_ham = np.log(ham_word_count / total_ham_words)
 
+
 def predict(msg):
     tokens = msg.lower().split()
     x = np.zeros(len(vocab), dtype=int)
@@ -94,6 +95,8 @@ def predict(msg):
     log_p_ham = np.log(p_ham) + np.dot(x, log_prob_ham)
 
     return 'spam' if log_p_spam > log_p_ham else 'ham'
+
+
 # print(predict("you are won, please connect to phone number 911"))       # spam
 # print(predict("Let's meet for lunch today"))  # ham
 # Luu mo hinh
@@ -109,4 +112,3 @@ model_data = {
 }
 with open(model_path, 'wb') as f:
     pickle.dump(model_data, f)
-
